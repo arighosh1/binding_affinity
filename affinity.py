@@ -5,23 +5,31 @@
 
 import streamlit as st
 from Bio.PDB import *
+
+
 pdbl = PDBList()
-pdbfile_id=""
-pdbfile_id=st.text_input("Enter pdb id: ")
-if len(pdbfile_id)>0:
-    pdbl.retrieve_pdb_file(pdbfile_id, pdir='.', file_format='pdb')
+filename=''
+uploaded_files = st.file_uploader("Choose a  File To Check Its Binding Affinity : ", accept_multiple_files=True)
+for uploaded_file in uploaded_files:
+    file = uploaded_file.read()
+    filename=uploaded_file.name
+
+
+if len(filename)>0:
+    filename=filename.replace(".pdb", "")
+    pdbl.retrieve_pdb_file(file, pdir='.', file_format='pdb')
 
     # In[2]:
 
     parser = PDBParser(PERMISSIVE=True, QUIET=True)
 
     # In[3]:
-
-    data = parser.get_structure(pdbfile_id, "pdb" + pdbfile_id + ".ent")
+    uploaded_file_name="pdb" + filename + ".ent"
+    data = parser.get_structure(filename, uploaded_file_name)
 
     # In[6]:
 
-    st.title(data.header["name"])
+    st.text(data.header["name"])
 
     # In[7]:
 
@@ -41,14 +49,12 @@ if len(pdbfile_id)>0:
 
     residue = list(chains[0].get_residues())
     atoms = list(residue[0].get_atoms())
-    atoms
 
     # In[22]:
-
-    st.title("binding affinity of protein is:", atoms[0].get_vector())
-
+    st.title("The Entered file has following binding affinity : ")
+    st.text(atoms[0].get_vector())
     # In[23]:
-
+    #
     # for model in data:   # X-Ray generally only have 1 model, while more in NMR
     #     for chain in model:
     #         for residue in chain:
@@ -85,6 +91,6 @@ if len(pdbfile_id)>0:
     #
     # resolution = data.header['resolution']
     # resolution
-
+#
 else:
-    st.text("Enter PDB ID")
+    st.text("Upload PDB file...")
