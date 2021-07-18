@@ -52,7 +52,7 @@ if len(filename)>0:
 
     # In[22]:
     st.title("The Entered file has following binding affinity : ")
-    st.text(atoms[0].get_vector())
+    st.title(atoms[0].get_vector())
     # In[23]:
     #
     # for model in data:   # X-Ray generally only have 1 model, while more in NMR
