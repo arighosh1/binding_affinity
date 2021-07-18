@@ -7,7 +7,7 @@ import streamlit as st
 from Bio.PDB import *
 pdbl = PDBList()
 pdbfile_id=""
-pdbfile_id=input("Enter pdb id: ")
+pdbfile_id=st.text_input("Enter pdb id: ")
 if len(pdbfile_id)>0:
     pdbl.retrieve_pdb_file(pdbfile_id, pdir='.', file_format='pdb')
 
