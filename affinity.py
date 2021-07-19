@@ -10,6 +10,14 @@ import os
 import streamlit as st
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 
+# Set the configs
+APP_TITLE = "RATIONAL VACCINE DESIGN FOR VIRUS USING MACHINE LEARNING APPROACHES"
+st.set_page_config(
+    page_title = APP_TITLE, 
+     
+    layout = "centered", 
+    initial_sidebar_state = "auto")
+
 def affinity():
     pdbl = PDBList()
     filename=''
