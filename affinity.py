@@ -11,11 +11,7 @@ import streamlit as st
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 
 st.write("""
-# RATIONAL VACCINE DESIGN FOR VIRUS USING MACHINE LEARNING APPROACHES
-by [@arielcedola](https://twitter.com/arielcedola)
-This simple [streamlit](https://www.streamlit.io/) app has been developed with the aim of supporting the teaching of [clustering](https://en.wikipedia.org/wiki/K-means_clustering), a basic machine learning concept, using [k-means](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html) algorithm.
-Easy to use! Reset points, spread them, select the number of clusters, and play!
-""")
+# RATIONAL VACCINE DESIGN FOR VIRUS USING MACHINE LEARNING APPROACHES)
 
 def affinity():
     pdbl = PDBList()
