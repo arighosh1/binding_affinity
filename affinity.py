@@ -10,9 +10,6 @@ import os
 import streamlit as st
 from Bio.SeqUtils.ProtParam import ProteinAnalysis
 
-st.write("""
-# RATIONAL VACCINE DESIGN FOR VIRUS USING MACHINE LEARNING APPROACHES)
-
 def affinity():
     pdbl = PDBList()
     filename=''
